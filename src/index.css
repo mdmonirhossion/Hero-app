@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@plugin "daisyui"{
+  themes: light --default, dark --prefersdark, cupcake;
+};
+@import "react-toastify/dist/ReactToastify.css";
+
+*{
+  font-family: 'Inter', sans-serif;
+}
