@@ -15,15 +15,14 @@ const AppDetails = () => {
   const { apps, error, loading } = useAppHook();
   const app = apps.find((app) => app.id === Number(id));
 
-  const installedApps =
-    JSON.parse(localStorage.getItem("installedApps")) || [];
-
   useEffect(() => {
+    const installedApps =
+      JSON.parse(localStorage.getItem("installedApps")) || [];
     const isInstalled = installedApps.some(
       (installedApp) => parseInt(installedApp.id) === parseInt(id)
     );
     setInstalled(isInstalled);
-  }, [installedApps, id]);
+  }, [id]);
 
   if (loading) return <LoadingSpiner />;
   if (error) return <p>Error loading app details.</p>;
